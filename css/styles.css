@@ -267,15 +267,16 @@ p {
 
 .hero__art {
   position: absolute;
-  right: -8%;
-  bottom: -28%;
-  width: min(58%, 520px);
+  right: -2%;
+  bottom: -12%;
+  width: min(42%, 380px);
   pointer-events: none;
 }
 
 .hero__art img {
   width: 100%;
   height: auto;
+  transform: rotate(-8deg);
 }
 
 /* ========== Value ========== */
@@ -337,16 +338,21 @@ p {
 
 .offer__art {
   position: absolute;
-  left: -18%;
+  left: -6%;
   top: 50%;
-  width: 280px;
+  width: 160px;
   transform: translateY(-50%);
   opacity: 0.95;
   pointer-events: none;
 }
 
 .offer--light .offer__art {
-  opacity: 0.85;
+  opacity: 0.9;
+}
+
+.offer__art img {
+  width: 100%;
+  height: auto;
 }
 
 .offer__body {
@@ -404,53 +410,73 @@ p {
 /* ========== Grow ========== */
 .grow {
   position: relative;
-  padding: var(--section-gap) 0;
+  padding: calc(var(--section-gap) + 24px) 0;
   overflow: hidden;
 }
 
-.grow__watermark {
+.grow__stripe {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(67, 120, 220, 0.18) 0 2px,
+    transparent 2px 10px
+  );
+}
+
+.grow__stripe::after {
+  content: "";
   position: absolute;
   left: 50%;
-  top: 42%;
+  top: 50%;
+  width: 48px;
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: #7eb6ff;
   transform: translate(-50%, -50%);
-  font-size: clamp(4rem, 16vw, 12rem);
-  font-weight: 800;
-  letter-spacing: -0.06em;
-  color: var(--color-gray-100);
-  white-space: nowrap;
-  pointer-events: none;
-  user-select: none;
-  z-index: 0;
+}
+
+.grow__stripe--top {
+  top: 0;
+}
+
+.grow__stripe--bottom {
+  bottom: 0;
 }
 
 .grow__layout {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 1.15fr 1fr;
+  grid-template-columns: 1fr 1.2fr 1fr;
   align-items: center;
   gap: 1.5rem;
 }
 
 .grow__photo {
   margin: 0;
-  border-radius: var(--radius-md);
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: var(--shadow-card);
+  background: #fff;
 }
 
 .grow__photo img {
   width: 100%;
   height: 420px;
   object-fit: cover;
+  display: block;
 }
 
 .grow__photo--left {
-  transform: rotate(-4deg);
+  transform: rotate(5deg);
+  border: 2px solid #3a3d9e;
 }
 
 .grow__photo--right {
-  transform: rotate(4deg);
+  transform: rotate(-5deg);
+  border: 2px solid #d131a6;
 }
 
 .grow__copy {
@@ -467,43 +493,39 @@ p {
 
 .grow__copy p {
   margin: 1rem auto 1.5rem;
-  max-width: 34ch;
-  color: var(--color-gray-500);
+  max-width: 38ch;
+  color: var(--color-black);
+  font-size: var(--text-sm);
+  line-height: 1.65;
+}
+
+.grow__copy strong {
+  font-weight: 700;
 }
 
 /* ========== Clients ========== */
 .clients {
   padding: 56px 0 var(--section-gap);
-  background: var(--color-gray-50);
+  background: var(--color-black);
 }
 
 .clients__title {
   text-align: center;
   font-size: var(--text-sm);
   font-weight: 600;
-  color: var(--color-gray-500);
+  color: rgba(255, 255, 255, 0.7);
   margin-bottom: 1.75rem;
 }
 
-.clients__grid {
+.clients__rows {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0.85rem;
+  gap: 1rem;
 }
 
-.clients__item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 72px;
-  background: var(--color-white);
+.clients__row {
+  width: 100%;
+  height: auto;
   border-radius: var(--radius-sm);
-  font-weight: 700;
-  font-size: var(--text-sm);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #222;
-  opacity: 0.72;
 }
 
 /* ========== Method ========== */
@@ -544,6 +566,24 @@ p {
 
 .method__item img {
   margin: 0 auto 0.85rem;
+  object-fit: contain;
+}
+
+.method__icon--figma {
+  width: 36px;
+  height: 54px;
+}
+
+.method__icon--webflow {
+  width: 96px;
+  height: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+
+.method__icon--asana {
+  width: 52px;
+  height: auto;
 }
 
 .method__item h3 {
@@ -786,17 +826,12 @@ p {
 
   .grow__photo--left,
   .grow__photo--right {
-    transform: none;
-    max-width: 320px;
+    max-width: 280px;
     margin-inline: auto;
   }
 
   .grow__photo img {
-    height: 360px;
-  }
-
-  .clients__grid {
-    grid-template-columns: repeat(2, 1fr);
+    height: 340px;
   }
 
   .method__grid {
