@@ -455,24 +455,32 @@ p {
 /* ========== Grow ========== */
 .grow {
   position: relative;
-  padding: calc(var(--section-gap) + 16px) 0;
+  padding: calc(var(--section-gap) + 24px) 0;
   overflow: hidden;
+  isolation: isolate;
 }
 
 .grow__watermark {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -52%);
-  font-size: clamp(4.5rem, 18vw, 13rem);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  font-size: clamp(6rem, 19vw, 17.5rem);
   font-weight: 800;
-  letter-spacing: -0.06em;
-  line-height: 0.9;
+  letter-spacing: -0.055em;
+  line-height: 1;
   color: #ececec;
   white-space: nowrap;
   pointer-events: none;
   user-select: none;
   z-index: 0;
+  overflow: visible;
 }
 
 .grow__layout {
@@ -890,7 +898,7 @@ p {
   }
 
   .grow__watermark {
-    font-size: clamp(3.5rem, 22vw, 7rem);
+    font-size: clamp(4.5rem, 28vw, 9rem);
   }
 
   .grow__layout {
