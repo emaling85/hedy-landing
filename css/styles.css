@@ -885,7 +885,8 @@ p {
   }
 
   .grow__photo img {
-    height: 340px;
+    height: auto;
+    max-height: 380px;
   }
 
   .method__grid {
