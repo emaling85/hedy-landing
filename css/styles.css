@@ -487,6 +487,7 @@ p {
   background: transparent;
   border: none;
   box-shadow: none;
+  outline: none;
 }
 
 .grow__photo img {
@@ -495,6 +496,9 @@ p {
   object-fit: cover;
   display: block;
   border: none;
+  /* zoom past baked-in Figma frame borders */
+  transform: scale(1.14);
+  transform-origin: center center;
 }
 
 .grow__photo--left {
@@ -503,6 +507,14 @@ p {
 
 .grow__photo--right {
   transform: rotate(-5deg);
+}
+
+.grow__photo--left img {
+  transform: scale(1.18);
+}
+
+.grow__photo--right img {
+  transform: scale(1.12);
 }
 
 .grow__copy {
@@ -604,11 +616,15 @@ p {
   text-align: center;
 }
 
-.method__item img {
+.method__item img,
+.method__icon {
   margin: 0 auto 0.85rem;
   object-fit: contain;
   border: none;
   box-shadow: none;
+  background: transparent;
+  width: 56px;
+  height: 56px;
 }
 
 .method__icon--figma {
