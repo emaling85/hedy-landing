@@ -116,17 +116,20 @@ p {
 }
 
 .logo {
-  font-weight: 800;
-  font-size: 1.35rem;
-  letter-spacing: -0.03em;
-  background: var(--gradient-accent);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
-.logo--lg {
-  font-size: 2rem;
+.logo img {
+  display: block;
+  width: auto;
+  height: 40px;
+  object-fit: contain;
+}
+
+.logo--lg img {
+  height: 72px;
 }
 
 /* ========== Header ========== */
@@ -482,39 +485,33 @@ p {
 
 .grow__photo {
   margin: 0;
-  border-radius: 6px;
-  overflow: hidden;
-  background: transparent;
   border: none;
   box-shadow: none;
-  outline: none;
+  background: transparent;
+  overflow: visible;
+  /* tilt + colored frame already baked into source assets */
+  transform: none;
 }
 
 .grow__photo img {
   width: 100%;
-  height: 420px;
-  object-fit: cover;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
   display: block;
+  margin-inline: auto;
   border: none;
-  /* zoom past baked-in Figma frame borders */
-  transform: scale(1.14);
-  transform-origin: center center;
+  transform: none;
 }
 
-.grow__photo--left {
-  transform: rotate(5deg);
-}
-
+.grow__photo--left,
 .grow__photo--right {
-  transform: rotate(-5deg);
+  transform: none;
 }
 
-.grow__photo--left img {
-  transform: scale(1.18);
-}
-
+.grow__photo--left img,
 .grow__photo--right img {
-  transform: scale(1.12);
+  transform: none;
 }
 
 .grow__copy {
